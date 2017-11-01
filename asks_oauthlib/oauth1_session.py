@@ -270,7 +270,7 @@ class OAuth1Session(asks.Session):
         self._client.client.realm = None
         return token
 
-    def fetch_access_token(self, url, verifier=None, **request_kwargs):
+    async def fetch_access_token(self, url, verifier=None, **request_kwargs):
         """Fetch an access token.
 
         This is the final step in the OAuth 1 workflow. An access token is
@@ -300,7 +300,7 @@ class OAuth1Session(asks.Session):
             self._client.client.verifier = verifier
         if not getattr(self._client.client, 'verifier', None):
             raise VerifierMissing('No client verifier has been set.')
-        token = self._fetch_token(url, **request_kwargs)
+        token = await self._fetch_token(url, **request_kwargs)
         log.debug('Resetting verifier attribute, should not be used anymore.')
         self._client.client.verifier = None
         return token
