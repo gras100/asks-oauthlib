@@ -169,6 +169,7 @@ class OAuth1Session(asks.Session):
                 **kwargs)
         self.auth = self._client
 
+    # SAFE async def not required.
     @property
     def authorized(self):
         """Boolean that indicates whether this session has an OAuth token
@@ -189,6 +190,7 @@ class OAuth1Session(asks.Session):
                 bool(self._client.client.resource_owner_secret)
             )
 
+    # SAFE post initial request url completion only no io or intensive ops.
     def authorization_url(self, url, request_token=None, **kwargs):
         """Create an authorization URL by appending request_token and optional
         kwargs to url.
