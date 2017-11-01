@@ -194,7 +194,7 @@ class OAuth1Session(asks.Session):
                 bool(self._client.client.resource_owner_secret)
             )
 
-    # SAFE post initial request url completion only no io or intensive ops.
+    # SAFE: url completion only no io or intensive ops.
     def authorization_url(self, url, request_token=None, **kwargs):
         """Create an authorization URL by appending request_token and optional
         kwargs to url.
@@ -309,6 +309,7 @@ class OAuth1Session(asks.Session):
         self._client.client.verifier = None
         return token
 
+    # SAFE: url parsing only no io or intensive ops.
     def parse_authorization_response(self, url):
         """Extract parameters from the post authorization redirect response URL.
 
@@ -331,6 +332,7 @@ class OAuth1Session(asks.Session):
         self._populate_attributes(token)
         return token
 
+    # SAFE: checks and sets only, no io or intensive ops.
     def _populate_attributes(self, token):
         if 'oauth_token' in token:
             self._client.client.resource_owner_key = token['oauth_token']
@@ -368,6 +370,7 @@ class OAuth1Session(asks.Session):
         self._populate_attributes(token)
         return token
 
+    # SAFE: checks and sets only, no io or intensive ops.
     def rebuild_auth(self, prepared_request, response):
         """
         When being redirected we should always strip Authorization
