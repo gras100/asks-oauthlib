@@ -237,7 +237,7 @@ class OAuth1Session(asks.Session):
         log.debug('Adding parameters %s to url %s', kwargs, url)
         return add_params_to_uri(url, kwargs.items())
 
-    def fetch_request_token(self, url, realm=None, **request_kwargs):
+    async def fetch_request_token(self, url, realm=None, **request_kwargs):
         """Fetch a request token.
 
         This is the first step in the OAuth 1 workflow. A request token is
@@ -264,7 +264,7 @@ class OAuth1Session(asks.Session):
         }
         """
         self._client.client.realm = ' '.join(realm) if realm else None
-        token = self._fetch_token(url, **request_kwargs)
+        token = await self._fetch_token(url, **request_kwargs)
         log.debug('Resetting callback_uri and realm (not needed in next phase).')
         self._client.client.callback_uri = None
         self._client.client.realm = None
