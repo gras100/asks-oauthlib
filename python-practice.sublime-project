@@ -1,0 +1,40 @@
+{
+    "folders":
+    [
+        {
+            "follow_symlinks": true,
+            "path": ".",
+            "folder_exclude_patterns": [".git"],
+        }
+    ],
+
+    "settings":{
+        "tab_size": 4,
+        "translate_tabs_to_spaces": true,
+        "use_tab_stops": false,
+        "trim_automatic_white_space": true, // default value
+        "trim_trailing_white_space_on_save": true,
+        "rulers": [80,100],
+        "highlight_line": true,
+        "index_exclude_patterns":["*.log","*.tab"],
+        "default_line_ending":"windows"
+    },
+
+    "build_systems":
+    [
+        {
+        "cmd":
+        [
+            "start",
+            "cmd",
+            "/k",
+            "C:/Users/gras1/Anaconda3/envs/python3.5ndep/python.exe",
+            "$file"
+        ],
+        /*"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",*/
+        "selector": "source.python",
+        "shell": true,
+        "working_dir":"$file_dir"
+        }
+    ]
+}

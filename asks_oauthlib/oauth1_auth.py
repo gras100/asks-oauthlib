@@ -57,7 +57,7 @@ class OAuth1(AuthBase):
             resource_owner_secret, callback_uri, signature_method,
             signature_type, rsa_key, verifier, decoding=decoding, **kwargs)
 
-    def __call__(self, r):
+    async def __call__(self, r):
         """Add OAuth parameters to the request.
 
         Parameters may be included from the body if the content-type is
