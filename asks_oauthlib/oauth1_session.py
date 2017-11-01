@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+#from __future__ import unicode_literals # unused.
 
 try:
     from urlparse import urlparse
@@ -7,13 +7,13 @@ except ImportError:
 
 import logging
 
+import asks
+from multio import asynclib
 from oauthlib.common import add_params_to_uri
 from oauthlib.common import urldecode as _urldecode
 from oauthlib.oauth1 import (
     SIGNATURE_HMAC, SIGNATURE_RSA, SIGNATURE_TYPE_AUTH_HEADER
 )
-import requests
-
 from . import OAuth1
 
 
