@@ -154,7 +154,7 @@ class OAuth1Session(asks.Session):
                                    signature creation.
         :param **kwargs: Additional keyword arguments passed to `OAuth1`
         """
-        super(OAuth1Session, self).__init__()
+        super().__init__(headers)
         self._client = OAuth1(client_key,
                 client_secret=client_secret,
                 resource_owner_key=resource_owner_key,
