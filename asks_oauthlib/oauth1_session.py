@@ -154,6 +154,10 @@ class OAuth1Session(asks.Session):
                                    signature creation.
         :param **kwargs: Additional keyword arguments passed to `OAuth1`
         """
+        # TODO:
+        # 1. Need to update, super() is asks.Session not asks.BaseSession
+        # so other parameters to deal with: base_location, end_point, headers, 
+        # encoding, connections. How to route these?
         super().__init__(headers)
         self._client = OAuth1(client_key,
                 client_secret=client_secret,
