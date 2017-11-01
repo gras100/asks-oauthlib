@@ -57,6 +57,10 @@ class OAuth1(AuthBase):
             resource_owner_secret, callback_uri, signature_method,
             signature_type, rsa_key, verifier, decoding=decoding, **kwargs)
 
+    # TODO:
+    # This is inline with asks auth classes but does this need to 
+    # be an async def, as (unless oauthlib.oauth1 Client is up to 
+    # magic?) we are just prepping things here.
     async def __call__(self, r):
         """Add OAuth parameters to the request.
 
