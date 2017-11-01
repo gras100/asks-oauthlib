@@ -6,15 +6,12 @@ import logging
 from oauthlib.common import extract_params
 from oauthlib.oauth1 import Client, SIGNATURE_HMAC, SIGNATURE_TYPE_AUTH_HEADER
 from oauthlib.oauth1 import SIGNATURE_TYPE_BODY
-from requests.compat import is_py3
-from requests.utils import to_native_string
-from requests.auth import AuthBase
+from asks import PostResponseAuth
+#from requests.utils import to_native_string
+#from requests.auth import AuthBase
 
 CONTENT_TYPE_FORM_URLENCODED = 'application/x-www-form-urlencoded'
 CONTENT_TYPE_MULTI_PART = 'multipart/form-data'
-
-if is_py3:
-    unicode = str
 
 log = logging.getLogger(__name__)
 
@@ -35,6 +32,7 @@ class OAuth1(AuthBase):
             signature_type=SIGNATURE_TYPE_AUTH_HEADER,
             rsa_key=None, verifier=None,
             decoding='utf-8',
+            endcoding='utf-8',
             client_class=None,
             force_include_body=False,
             **kwargs):
@@ -45,6 +43,13 @@ class OAuth1(AuthBase):
             pass
 
         client_class = client_class or self.client_class
+
+        # TODO:
+        # Do we really need both encoding and decoding arguments,
+        # surely one will do, but which should it be? asks BasicAuth
+        # and DigestAuth have encoding only, but oauthlib.oauth1
+        # Client (default for client_class) has decoding kwarg.
+        self.encoding = encoding
 
         self.force_include_body = force_include_body
 
