@@ -51,7 +51,7 @@ class VerifierMissing(ValueError):
     pass
 
 
-class OAuth1Session(requests.Session):
+class OAuth1Session(asks.Session):
     """Request signing and convenience methods for the oauth dance.
 
     What is the difference between OAuth1Session and OAuth1?
@@ -116,6 +116,7 @@ class OAuth1Session(requests.Session):
             rsa_key=None,
             verifier=None,
             client_class=None,
+            headers = None,
             force_include_body=False,
             **kwargs):
         """Construct the OAuth 1 session.
