@@ -7,6 +7,9 @@ import re
 
 from setuptools import setup
 
+if sys.version_info < (3, 5, 2):
+    # 3.5.2 is when __aiter__ became a synchronous function
+    raise SystemExit('Sorry! asks-oauthlib requires python 3.5.2 or later.')
 
 # Get the version
 version_regex = r'__version__ = ["\']([^"\']*)["\']'
@@ -36,28 +39,22 @@ def readall(path):
 setup(
     name=APP_NAME,
     version=VERSION,
-    description='OAuthlib authentication support for Requests.',
+    description='OAuthlib authentication support for Asks.',
     long_description=readall('README.rst') + '\n\n' +
                      readall('HISTORY.rst'),
     author='Kenneth Reitz',
     author_email='me@kennethreitz.com',
     url='https://github.com/requests/requests-oauthlib',
     packages=['requests_oauthlib', 'requests_oauthlib.compliance_fixes'],
-    install_requires=['oauthlib>=0.6.2', 'requests>=2.0.0'],
-    extras_require={'rsa': ['oauthlib[rsa]>=0.6.2', 'requests>=2.0.0']},
+    install_requires=['oauthlib>=0.6.2', 'asks>=1.3.6'],
+    extras_require={'rsa': ['oauthlib[rsa]>=0.6.2', 'asks>=1.3.6']},
     license='ISC',
     classifiers=(
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'License :: OSI Approved :: BSD License',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.5.2',
         'Programming Language :: Python :: 3.6',
     ),
     zip_safe=False,
