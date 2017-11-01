@@ -341,10 +341,10 @@ class OAuth1Session(asks.Session):
         if 'oauth_verifier' in token:
             self._client.client.verifier = token['oauth_verifier']
 
-    def _fetch_token(self, url, **request_kwargs):
+    async def _fetch_token(self, url, **request_kwargs):
         log.debug('Fetching token from %s using client %s', url, self._client.client)
-        r = self.post(url, **request_kwargs)
-
+        r = await self.post(url, **request_kwargs)
+        
         if r.status_code >= 400:
             error = "Token request failed with code %s, response was '%s'."
             raise TokenRequestDenied(error % (r.status_code, r.text), r)
