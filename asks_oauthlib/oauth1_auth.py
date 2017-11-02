@@ -14,6 +14,31 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 log.addHandler(logging.FileHandler(__name__+'.log',encoding='utf-8'))
 
+class RequestWrapper():
+    '''
+    Class to paste over differences in requests.Request and
+    asks.Request object field names.
+    '''
+    def __init__(self,r):
+        self.r = r
+
+    @property
+    def url(self):
+        return self.r.uri
+
+    @property.setter
+    def url(self,value):
+        r.uri = url
+
+    @property
+    def body(self):
+        return self.r.body
+
+    @property.setter
+    def body(self,value):
+        r.data = value
+
+
 # OBS!: Correct signing of requests are conditional on invoking OAuth1
 # as the last step of preparing a request, or at least having the
 # content-type set properly.
@@ -80,10 +105,26 @@ class OAuth1(PreResponseAuth):
 
         log.debug('Signing request %s using client %s', r, self.client)
 
+        # Paste over differences in requests and asks Request attribute names.
+        #r = RequestWrapper(r)
+
+        request_has_no_body = not hasattr(r,'body')
+
         content_type = r.headers.get('Content-Type', '')
-        if (not content_type and extract_params(r.body)
-                or self.client.signature_type == SIGNATURE_TYPE_BODY):
-            content_type = CONTENT_TYPE_FORM_URLENCODED
+
+        # TODO:
+        if request_has_no_body:
+            if self.client.signature_type == SIGNATURE_TYPE_BODY:
+                raise ValueError('request has no body but client signature '
+                                 'type is SIGNATURE_TYPE_BODY')
+            if self.force_include_body:
+                raise ValueError('request has not body but '
+                                 'force_include_body is True')
+        else:
+            # okay, we can do the same as requests version.
+            if (not content_type and extract_params(r.body)
+                    or self.client.signature_type == SIGNATURE_TYPE_BODY):
+                content_type = CONTENT_TYPE_FORM_URLENCODED
         if not isinstance(content_type, str):
             content_type = str(content_type,self.encoding)
 
@@ -97,7 +138,10 @@ class OAuth1(PreResponseAuth):
         if is_form_encoded:
             r.headers['Content-Type'] = CONTENT_TYPE_FORM_URLENCODED
 
-        if self.force_include_body:
+        if request_has_no_body:
+            r.url, headers, _ = self.client.sign(
+                str(r.url,self.encoding), str(r.method,self.encoding), None, r.headers)
+        elif self.force_include_body:
             r.url, headers, r.body = self.client.sign(
                 str(r.url,self.encoding), str(r.method,self.encoding), r.body or '', r.headers)
         else:
