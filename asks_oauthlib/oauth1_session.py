@@ -154,11 +154,19 @@ class OAuth1Session(asks.Session):
                                    signature creation.
         :param **kwargs: Additional keyword arguments passed to `OAuth1`
         """
+
         # TODO:
-        # 1. Need to update, super() is asks.Session not asks.BaseSession
-        # so other parameters to deal with: base_location, end_point, headers, 
-        # encoding, connections. How to route these?
-        super().__init__(headers)
+        # 1. requests_oauthlib doesn't implement base_location/endpoint
+        # paradigm as asks does, should we?
+        # 2. Not in first version (see _make_url, once tested we may but could
+        # also decide to factor out.
+        super().__init__(base_location=None,
+                         endpoint=None,
+                         headers=headers,
+                         encoding=kwargs.get("encoding",'utf-8'),
+                         persist_cookies = None,
+                         connections=kwargs.get("connections",1))
+
         self._client = OAuth1(client_key,
                 client_secret=client_secret,
                 resource_owner_key=resource_owner_key,
@@ -350,7 +358,7 @@ class OAuth1Session(asks.Session):
     async def _fetch_token(self, url, **request_kwargs):
         log.debug('Fetching token from %s using client %s', url, self._client.client)
         r = await self.post(url, **request_kwargs)
-        
+
         if r.status_code >= 400:
             error = "Token request failed with code %s, response was '%s'."
             raise TokenRequestDenied(error % (r.status_code, r.text), r)
@@ -382,3 +390,8 @@ class OAuth1Session(asks.Session):
             prepared_request.headers.pop('Authorization', True)
             prepared_request.prepare_auth(self.auth)
         return
+
+    def _make_url(self):
+        # See __init__ TODO, we do not use base_location/endpoint paradigm
+        # at this point.
+        raise NotImplementedError
