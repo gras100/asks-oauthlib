@@ -1,0 +1,299 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"consumer_secret"
+			],
+			[
+				"tax",
+				"taxonomy_iter"
+			],
+			[
+				"screen",
+				"screen_name"
+			],
+			[
+				"app",
+				"append_error"
+			],
+			[
+				"Inser",
+				"InsertResult"
+			],
+			[
+				"path",
+				"path_like_object"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 182.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 526.0
+	},
+	"console":
+	{
+		"height": 219.0,
+		"history":
+		[
+			"sys.remove",
+			"sys.rn",
+			"sys.rename",
+			"dir(sys)",
+			"import sys",
+			"import pathlib",
+			"help(collections.ChainMap)",
+			"dir(collections)",
+			"import collections",
+			"dir([])",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/dev/languages/python/projects/asks-oauthlib"
+	],
+	"file_history":
+	[
+		"/D/dev/languages/python/practice/python-practice.sublime-project",
+		"/D/dev/languages/python/practice/get_installed_module_version.py",
+		"/D/dev/languages/python/practice/coroutines_first_look.py",
+		"/D/dev/languages/python/practice/asyncio_first_look.py",
+		"/D/User/AppData/Roaming/Sublime Text 3/Packages/python-markdown/st3/markdown/__main__.py",
+		"/D/sys/setup/Putin-2/python-envs/pip-install-idle-trio.bat",
+		"/D/dev/languages/python/libraries/async/trio/pip-install-idle-trio.bat",
+		"/D/dev/languages/python/libraries/async/trio/py3ndep-install-trio.bat",
+		"/D/dev/languages/python/practice/trio_tutorial_echo_server_client.py",
+		"/D/dev/languages/python/practice/trio_tutorial_echo_server.py",
+		"/D/dev/languages/python/practice/trio_tutorial_echo_server_launch.bat",
+		"/D/dev/languages/python/practice/trio_tutorial_echo_server_client_start.bat",
+		"/D/dev/languages/python/practice/trio_tutorial_echo_server_start.bat",
+		"/D/dev/languages/python/libraries/async/trio/idle-install-trio.bat",
+		"/D/dev/languages/python/libraries/async/trio/setup.py",
+		"/D/dev/languages/python/libraries/async/trio/README.rst",
+		"/D/dev/languages/python/libraries/async/trio/trio/_version.py",
+		"/D/User/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/D/dev/languages/python/libraries/async/trio/trio/_core/_run.py",
+		"/D/dev/languages/python/practice/async_first_look.py",
+		"/D/dev/languages/python/practice/async_event_loop_1.py",
+		"/D/doc/notes/Notes.0001.md",
+		"/D/User/AppData/Roaming/Sublime Text 3/Packages/markupsafe/all/markupsafe/_native.py",
+		"/D/User/AppData/Roaming/Sublime Text 3/Packages/markupsafe/all/markupsafe/_constants.py",
+		"/D/User/AppData/Roaming/Sublime Text 3/Packages/markupsafe/all/markupsafe/_compat.py",
+		"/D/dev/languages/python/libraries/web/peewee-master/peewee_tryout.py",
+		"/D/sys/setup/python-envs/pip-install-idle-aiohttp - Copy.bat",
+		"/D/sys/setup/python-envs/pip-install-idle-hyper.bat",
+		"/D/sys/setup/python-envs/pip-install-idle-aiohtml.bat",
+		"/D/sys/setup/python-envs/pip-install-idle-eg.bat",
+		"/D/dev/languages/python/practice/.gitignore",
+		"/D/dev/languages/python/practice/print_redirect_out.txt",
+		"/D/dev/languages/python/practice/test/print_redirect_test.py",
+		"/D/dev/languages/python/practice/print_redirect.py",
+		"/D/dev/languages/python/practice/introspection1.py",
+		"/D/dev/languages/python/practice/open_workout.py",
+		"/D/dev/languages/python/practice/file_openers.py",
+		"/D/dev/languages/python/practice/help_inspect.txt",
+		"/D/dev/projects/TweetCage/.gitignore",
+		"/D/User/AppData/Roaming/Sublime Text 3/Packages/User/python3.5ndep.sublime-build",
+		"/D/dev/projects/TweetCage/README",
+		"/D/dev/projects/TweetCage/tweetcage/sandpit/tweepy_.py",
+		"/D/dev/projects/TweetCage/example_data/endpoints.txt",
+		"/D/dev/projects/TweetCage/tweetcage/twitter.py",
+		"/D/dev/projects/TweetCage/tweetcage/main.py",
+		"/D/dev/projects/TweetCage/tweetcage/textstore.py",
+		"/D/dev/projects/TweetCage/tweetcage/fs.py",
+		"/D/dev/projects/TweetCage/tweetcage.sublime-project",
+		"/D/dev/tweetcage/taxonomy.py",
+		"/D/dev/tweetcage/tweepy.Status.fields.txt",
+		"/D/dev/Visual Studio Code/test.cs",
+		"/D/dev/tweetcage/tweetcage/core/textstore.py",
+		"/D/dev/tweetcage/104256824_followers.txt",
+		"/D/dev/tweetcage/tweetcage/sandpit/readfromend.py",
+		"/D/dev/tweetcage/tweetcage/sandpit/reflection.py",
+		"/D/dev/tweetcage/tweetcage/sandpit/singleton.py",
+		"/D/dev/tweetcage/tweetcage/sandpit/tweepy_.py",
+		"/D/dev/tweetcage/retweet_data_model.txt",
+		"/D/dev/flattened_tweets.txt",
+		"/D/dev/tweetcage/JakeWSimons_104256824.txt",
+		"/D/dev/tweetcage/tweetcage/sandpit/tweepyexamples.py",
+		"/D/dev/tweetcage/tweetcage/sandpit/twitter_status.txt",
+		"/D/sys/setup/Notes.txt",
+		"/D/sys/setup/Put Command Prompt on Context Menu.reg",
+		"/D/sys/scripts/Put Command Prompt on Context Menu.reg",
+		"/D/sys/setup/python-envs/pip-install-multi.bat",
+		"/D/prj/All/20171026. IP Research/data/Actors.json",
+		"/D/prj/All/20171026. IP Research/IP Research.sublime-workspace",
+		"/D/prj/All/20171026. IP Research/Actors.json",
+		"/D/dev/pygs/pygs/fs.py",
+		"/D/dev/pygs/pygs/cmd.py",
+		"/D/User/AppData/Roaming/Sublime Text 3/Packages/User/eloop.sublime-snippet",
+		"/D/User/AppData/Roaming/Sublime Text 3/Packages/User/lcomp.sublime-snippet",
+		"/D/User/AppData/Roaming/Sublime Text 3/Packages/User/main.py.sublime-snippet",
+		"/C/Program Files/Sublime Text 3/Packages/Python.sublime-package",
+		"/D/sys/support/Macrium Reflect - Unable to Eject Hard drives",
+		"/D/prj/All/201710.Understanding Vietnam/Secretary Dulles",
+		"/D/prj/All/201710.Communication/Day0.txt",
+		"/D/in/a.bin",
+		"/D/img/in/Curtains.Scratch.Edinburgh.Slateford/DGN/Curtains-01/convert.bat",
+		"/D/dev/eg/net/CSharp/Checksum-Inspector/robocopydoc.txt",
+		"/D/img/Issues - Palestine/Activism/ULocked - Input shots/convert.bat",
+		"/D/sys/scripts/eject_backup_drives.ps1",
+		"/D/User/Downloads/Registry log.reg",
+		"/D/User/Downloads/bitap.ps",
+		"/D/User/Downloads/python-3.5.4.exe.asc",
+		"/C/Users/gras1/AppData/Local/Punch!/ViaCAD Pro/VCPPrefs.ini",
+		"/C/Users/gras1/AppData/Local/Punch!/ViaCAD Pro/VCPDialogs.ini"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 46.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/python3.5ndep.sublime-build",
+	"project": "python-practice.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 208.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
