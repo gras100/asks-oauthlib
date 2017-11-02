@@ -12,15 +12,12 @@ __version__ = '0.1.0'
 
 try:
 	import pkg_resources
-	try:
-		asks_info = pkg_resources.get_distribution('asks')
-		asks_version = tuple(int(s) for s in asks_info.version.split('.'))
-		if asks_version < (1,3,6):
-			msg = ('You are using asks version %s, which is older than '
-				   'asks-oauthlib expects, please upgrade to 1.3.6 or later.')
-			raise Warning(msg % asks_version)
-	except:
-		raise
+	asks_info = pkg_resources.get_distribution('asks')
+	asks_version = tuple(int(s) for s in asks_info.version.split('.'))
+	if asks_version < (1,3,6):
+		msg = ('You are using asks version %s, which is older than '
+			   'asks-oauthlib expects, please upgrade to 1.3.6 or later.')
+		raise Warning(msg % asks_version)
 except:
 	msg = ('Unable to determine asks version, asks-oauthlib may not work with'
 		   'asks versions ealier than 1.3.6.')
