@@ -13,17 +13,16 @@ if sys.version_info < (3, 5, 2):
 
 # Get the version
 version_regex = r'__version__ = ["\']([^"\']*)["\']'
-with open('requests_oauthlib/__init__.py', 'r') as f:
+with open('asks_oauthlib/__init__.py', 'r') as f:
     text = f.read()
     match = re.search(version_regex, text)
-
     if match:
         VERSION = match.group(1)
     else:
         raise RuntimeError("No version number found!")
 
 
-APP_NAME = 'requests-oauthlib'
+APP_NAME = 'asks-oauthlib'
 
 # Publish Helper.
 if sys.argv[-1] == 'publish':
@@ -44,8 +43,8 @@ setup(
                      readall('HISTORY.rst'),
     author='Kenneth Reitz',
     author_email='me@kennethreitz.com',
-    url='https://github.com/requests/requests-oauthlib',
-    packages=['requests_oauthlib', 'requests_oauthlib.compliance_fixes'],
+    url='https://github.com/gras100/asks-oauthlib',
+    packages=['asks_oauthlib' ] #, 'requests_oauthlib.compliance_fixes'],
     install_requires=['oauthlib>=0.6.2', 'asks>=1.3.6'],
     extras_require={'rsa': ['oauthlib[rsa]>=0.6.2', 'asks>=1.3.6']},
     license='ISC',
