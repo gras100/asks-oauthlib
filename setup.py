@@ -44,7 +44,7 @@ setup(
     author='Kenneth Reitz',
     author_email='me@kennethreitz.com',
     url='https://github.com/gras100/asks-oauthlib',
-    packages=['asks_oauthlib' ] #, 'requests_oauthlib.compliance_fixes'],
+    packages=['asks_oauthlib' ], #, 'requests_oauthlib.compliance_fixes'],
     install_requires=['oauthlib>=0.6.2', 'asks>=1.3.6'],
     extras_require={'rsa': ['oauthlib[rsa]>=0.6.2', 'asks>=1.3.6']},
     license='ISC',
