@@ -12,6 +12,7 @@ asks_oauthlib.egg-info/
 *.pyc
 *.swp
 *~
+*.log
 env/
 build/
 dist/
