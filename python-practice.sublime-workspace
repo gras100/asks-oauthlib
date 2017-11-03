@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"SIGN",
+				"SIGNATURE_TYPE_BODY"
+			],
+			[
 				"con",
 				"consumer_secret"
 			],
@@ -31,6 +35,33 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "asks_oauthlib/__init__.py",
+			"settings":
+			{
+				"buffer_size": 1023,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "asks_oauthlib/oauth1_session.py",
+			"settings":
+			{
+				"buffer_size": 17447,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "asks_oauthlib/oauth1_auth.py",
+			"settings":
+			{
+				"buffer_size": 5213,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -83,10 +114,17 @@
 	},
 	"expanded_folders":
 	[
-		"/D/dev/languages/python/projects/asks-oauthlib"
+		"/D/dev/languages/python/projects/asks-oauthlib",
+		"/D/dev/languages/python/projects/asks-oauthlib/asks_oauthlib",
+		"/D/dev/languages/python/projects/asks-oauthlib/tests"
 	],
 	"file_history":
 	[
+		"/D/dev/languages/python/projects/asks-oauthlib/.gitignore",
+		"/D/dev/languages/python/projects/asks-oauthlib/tests/__init__.py",
+		"/D/dev/languages/python/projects/asks-oauthlib/asks_oauthlib/poc.py",
+		"/D/dev/languages/python/projects/asks-oauthlib/dev-setup-idlepy.bat",
+		"/D/dev/languages/python/projects/asks-oauthlib/setup.py",
 		"/D/dev/languages/python/practice/python-practice.sublime-project",
 		"/D/dev/languages/python/practice/get_installed_module_version.py",
 		"/D/dev/languages/python/practice/coroutines_first_look.py",
@@ -178,7 +216,7 @@
 	],
 	"find":
 	{
-		"height": 30.0
+		"height": 49.0
 	},
 	"find_in_files":
 	{
@@ -189,9 +227,15 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"Request",
+			"r.url",
+			"body",
+			"extract_params",
+			"add_params_to_uri",
+			"\t"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -199,18 +243,110 @@
 		"regex": false,
 		"replace_history":
 		[
+			"r.uri",
+			"    "
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "asks_oauthlib/__init__.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1023,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								830,
+								830
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "asks_oauthlib/oauth1_session.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17447,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								165,
+								165
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "asks_oauthlib/oauth1_auth.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5213,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								776,
+								776
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 204.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -245,6 +381,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 124.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -253,7 +393,7 @@
 	"project": "python-practice.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 92.0
 	},
 	"save_all_on_build": true,
 	"select_file":
