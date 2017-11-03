@@ -82,7 +82,16 @@ class OAuth1(PreResponseAuth):
 
         Parameters may be included from the body if the content-type is
         urlencoded, if no content type is set a guess is made.
+
+        Discussion:
+        1. refactor to work with asks request objects which in particular
+        do not maintain an up to date url including e.g. queries built
+        from a params object?
+        2. Need to understand oauth possibilities does signing ever
+        change the url for example, if so asks might be broken as the
+        url is not used for io?
         """
+
         # Overwriting url is safe here as request will not modify it past
         # this point.
 
@@ -90,12 +99,16 @@ class OAuth1(PreResponseAuth):
             if isinstance(value,str): return value
             return str(value,encoding)
 
-
         log.debug('Signing request %s using client %s', r, self.client)
 
         # Paste over differences in requests and asks Request attribute names.
-        _r = r
         r = MappedAttributesProxy(r,url='uri',body='data')
+
+        if r.params:
+            # oauth signing is based on full uri/url including the query
+            # part, unfortunately asks doesn't provide this when the query
+            # is passed via params, so we have to fix up here
+            r.url = '{}?{}'.format(r.url.split('?')[0],r.path.split('?')[1])
 
         content_type = r.headers.get('Content-Type', '')
         if (not content_type and extract_params(r.body)
@@ -117,6 +130,7 @@ class OAuth1(PreResponseAuth):
             r.url, headers, r.body = self.client.sign(
                 str_(r.url,self.encoding), str_(r.method,self.encoding), r.body or '', r.headers)
         else:
+            print("signing with url: {}".format(r.url))
             r.url, headers, r.body = self.client.sign(
                 str_(r.url,self.encoding), str_(r.method,self.encoding), None, r.headers)
 
