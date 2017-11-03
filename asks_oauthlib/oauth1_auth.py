@@ -5,6 +5,9 @@ from oauthlib.common import extract_params
 from oauthlib.oauth1 import Client, SIGNATURE_HMAC, SIGNATURE_TYPE_AUTH_HEADER
 from oauthlib.oauth1 import SIGNATURE_TYPE_BODY
 from asks import PostResponseAuth, PreResponseAuth
+from asks.request_object import Request
+
+from .proxy import MappedAttributesProxy
 
 CONTENT_TYPE_FORM_URLENCODED = 'application/x-www-form-urlencoded'
 CONTENT_TYPE_MULTI_PART = 'multipart/form-data'
@@ -13,30 +16,6 @@ CONTENT_TYPE_MULTI_PART = 'multipart/form-data'
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 log.addHandler(logging.FileHandler(__name__+'.log',encoding='utf-8'))
-
-class RequestWrapper():
-    '''
-    Class to paste over differences in requests.Request and
-    asks.Request object field names.
-    '''
-    def __init__(self,r):
-        self.r = r
-
-    @property
-    def url(self):
-        return self.r.uri
-
-    @property.setter
-    def url(self,value):
-        r.uri = url
-
-    @property
-    def body(self):
-        return self.r.body
-
-    @property.setter
-    def body(self,value):
-        r.data = value
 
 
 # OBS!: Correct signing of requests are conditional on invoking OAuth1
@@ -94,6 +73,10 @@ class OAuth1(PreResponseAuth):
     # poc removal and raise as issue with asks, as outside
     # the spirit of the trio async def/def dichotomy (what
     # about curio however?)
+    # 4. __call__ in asks returns a header rather than applying
+    # one, semantics confusing compared with requests unless one
+    # understands that auth objects operate on headers only.
+    #
     async def __call__(self, r):
         """Add OAuth parameters to the request.
 
@@ -103,28 +86,21 @@ class OAuth1(PreResponseAuth):
         # Overwriting url is safe here as request will not modify it past
         # this point.
 
+        def str_(value,encoding):
+            if isinstance(value,str): return value
+            return str(value,encoding)
+
+
         log.debug('Signing request %s using client %s', r, self.client)
 
         # Paste over differences in requests and asks Request attribute names.
-        #r = RequestWrapper(r)
-
-        request_has_no_body = not hasattr(r,'body')
+        _r = r
+        r = MappedAttributesProxy(r,url='uri',body='data')
 
         content_type = r.headers.get('Content-Type', '')
-
-        # TODO:
-        if request_has_no_body:
-            if self.client.signature_type == SIGNATURE_TYPE_BODY:
-                raise ValueError('request has no body but client signature '
-                                 'type is SIGNATURE_TYPE_BODY')
-            if self.force_include_body:
-                raise ValueError('request has not body but '
-                                 'force_include_body is True')
-        else:
-            # okay, we can do the same as requests version.
-            if (not content_type and extract_params(r.body)
-                    or self.client.signature_type == SIGNATURE_TYPE_BODY):
-                content_type = CONTENT_TYPE_FORM_URLENCODED
+        if (not content_type and extract_params(r.body)
+                or self.client.signature_type == SIGNATURE_TYPE_BODY):
+            content_type = CONTENT_TYPE_FORM_URLENCODED
         if not isinstance(content_type, str):
             content_type = str(content_type,self.encoding)
 
@@ -133,26 +109,22 @@ class OAuth1(PreResponseAuth):
         log.debug('Including body in call to sign: %s',
                   is_form_encoded or self.force_include_body)
 
-        # ASSUME this ensures r.prepare_headers call does
-        # the right thing.
         if is_form_encoded:
             r.headers['Content-Type'] = CONTENT_TYPE_FORM_URLENCODED
-
-        if request_has_no_body:
-            r.url, headers, _ = self.client.sign(
-                str(r.url,self.encoding), str(r.method,self.encoding), None, r.headers)
-        elif self.force_include_body:
             r.url, headers, r.body = self.client.sign(
-                str(r.url,self.encoding), str(r.method,self.encoding), r.body or '', r.headers)
+                str_(r.url,self.encoding), str_(r.method,self.encoding), r.body or '', r.headers)
+        if self.force_include_body:
+            r.url, headers, r.body = self.client.sign(
+                str_(r.url,self.encoding), str_(r.method,self.encoding), r.body or '', r.headers)
         else:
             r.url, headers, r.body = self.client.sign(
-                str(r.url,self.encoding), str(r.method,self.encoding), None, r.headers)
+                str_(r.url,self.encoding), str_(r.method,self.encoding), None, r.headers)
 
-        r.prepare_headers(headers)
-        r.url = str(r.url,self.encoding)
+        #_r.prepare_headers(headers)
+        r.url = str_(r.url,self.encoding)
         print('{}'.format(r.url))
         print('{}'.format(headers))
         log.debug('Updated url: %s', r.url)
         log.debug('Updated headers: %s', headers)
         log.debug('Updated body: %r', r.body)
-        return r
+        return headers
