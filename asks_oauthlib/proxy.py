@@ -11,10 +11,10 @@ class MappedAttributesProxy(object):
     This may be quite dangerous as edge cases not dealt with or
     looked into.
     '''
-    @classmethod
-    def is_magic(cls,key):
-        return (key.startswith('__') and
-                key.endswith('__'))
+    #@classmethod
+    #def is_magic(cls,key):
+    #    return (key.startswith('__') and
+    #            key.endswith('__'))
 
     def __getattribute__(self,name):
         source = object.__getattribute__(self,'_proxy_source')
@@ -22,7 +22,7 @@ class MappedAttributesProxy(object):
             msg = 'Proxy2({}) source attribute {} blocked.'
             raise AttributeError(msg.format(type(source),name))
         map_ = object.__getattribute__(self,'_proxy_map')
-        return getattr(source,map_.get(name,name))
+        return = getattr(source,map_.get(name,name))
 
     def __setattr__(self,name,value):
         source = object.__getattribute__(self,'_proxy_source')
