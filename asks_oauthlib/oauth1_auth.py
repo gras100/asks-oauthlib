@@ -130,14 +130,10 @@ class OAuth1(PreResponseAuth):
             r.url, headers, r.body = self.client.sign(
                 str_(r.url,self.encoding), str_(r.method,self.encoding), r.body or '', r.headers)
         else:
-            print("signing with url: {}".format(r.url))
             r.url, headers, r.body = self.client.sign(
                 str_(r.url,self.encoding), str_(r.method,self.encoding), None, r.headers)
 
-        #_r.prepare_headers(headers)
         r.url = str_(r.url,self.encoding)
-        print('{}'.format(r.url))
-        print('{}'.format(headers))
         log.debug('Updated url: %s', r.url)
         log.debug('Updated headers: %s', headers)
         log.debug('Updated body: %r', r.body)
