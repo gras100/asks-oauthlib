@@ -36,19 +36,10 @@
 	"buffers":
 	[
 		{
-			"file": "asks_oauthlib/__init__.py",
+			"file": "asks_oauthlib/proxy.py",
 			"settings":
 			{
-				"buffer_size": 1023,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "asks_oauthlib/oauth1_session.py",
-			"settings":
-			{
-				"buffer_size": 17447,
+				"buffer_size": 1395,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -57,8 +48,16 @@
 			"file": "asks_oauthlib/oauth1_auth.py",
 			"settings":
 			{
-				"buffer_size": 5213,
+				"buffer_size": 5866,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/dev/projects/TweetCage/tweetcage/sandpit/tweepyexamples.py",
+			"settings":
+			{
+				"buffer_size": 9846,
 				"line_ending": "Windows"
 			}
 		}
@@ -116,10 +115,17 @@
 	[
 		"/D/dev/languages/python/projects/asks-oauthlib",
 		"/D/dev/languages/python/projects/asks-oauthlib/asks_oauthlib",
+		"/D/dev/languages/python/projects/asks-oauthlib/asks_oauthlib/originals",
 		"/D/dev/languages/python/projects/asks-oauthlib/tests"
 	],
 	"file_history":
 	[
+		"/D/dev/projects/TweetCage/example_data/104256824_followers_safe.tab",
+		"/D/dev/languages/python/projects/asks-oauthlib/asks_oauthlib/__init__.py",
+		"/D/dev/languages/python/projects/asks-oauthlib/asks_oauthlib/oauth1_session.py",
+		"/D/dev/languages/python/projects/asks-oauthlib/asks_oauthlib/oauth1_auth.py",
+		"/D/dev/languages/python/projects/asks-oauthlib/asks_oauthlib/proxy.py",
+		"/D/dev/languages/python/projects/asks-oauthlib/asks_oauthlib/originals/proxy.py",
 		"/D/dev/languages/python/projects/asks-oauthlib/.gitignore",
 		"/D/dev/languages/python/projects/asks-oauthlib/tests/__init__.py",
 		"/D/dev/languages/python/projects/asks-oauthlib/asks_oauthlib/poc.py",
@@ -227,9 +233,11 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"params",
+			"\t",
 			"Request",
 			"r.url",
 			"body",
@@ -243,6 +251,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\t¬",
 			"r.uri",
 			"    "
 		],
@@ -255,29 +264,60 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "asks_oauthlib/__init__.py",
+					"file": "asks_oauthlib/proxy.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1023,
+						"buffer_size": 1395,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								830,
-								830
+								1176,
+								1176
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "asks_oauthlib/oauth1_auth.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5866,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4071,
+								4071
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -288,20 +328,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "asks_oauthlib/oauth1_session.py",
+					"buffer": 2,
+					"file": "/D/dev/projects/TweetCage/tweetcage/sandpit/tweepyexamples.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 17447,
+						"buffer_size": 9846,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								165,
-								165
+								8492,
+								8492
 							]
 						],
 						"settings":
@@ -311,40 +351,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 255.0,
+						"translation.y": 3468.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "asks_oauthlib/oauth1_auth.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5213,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								776,
-								776
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
